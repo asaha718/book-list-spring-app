@@ -30,6 +30,6 @@ public class ReadingList {
     @ManyToOne
     private BookUser bookUser;
 
-    @ManyToMany(mappedBy = "readingLists")
+    @ManyToMany
     private List<Book> books = new ArrayList<>();
 }

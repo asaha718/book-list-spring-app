@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="ReadingLists")
+@Table(name="Genres")
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
@@ -27,6 +27,6 @@ public class Genre {
     @NotBlank
     private String name;
 
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany
     private List<Book> books = new ArrayList<>();
 }

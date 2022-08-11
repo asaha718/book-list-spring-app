@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ReadingListRepository extends JpaRepository<ReadingList, Integer> {
     List<ReadingList> findAllByBookUserId(int bookUserId);
+    ReadingList findByIdAndBookUserId(int id, int bookUserId);
 }

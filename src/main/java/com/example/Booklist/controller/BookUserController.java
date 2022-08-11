@@ -3,6 +3,7 @@ package com.example.Booklist.controller;
 import com.example.Booklist.dto.UserDTO;
 import com.example.Booklist.dto.UsersReadingListDTO;
 import com.example.Booklist.model.BookUser;
+import com.example.Booklist.model.ReadingList;
 import com.example.Booklist.service.BookUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,11 @@ public class BookUserController {
     @PostMapping("/users/{id}/reading_lists")
     public BookUser createReadingList (@PathVariable(value = "id") Integer id) {
         return userService.createReadingListForUser(id);
+    }
+
+    @GetMapping("/users/{id}/reading_lists/{list_id}")
+    public ReadingList getReadingListFromUser(@PathVariable(value = "id") Integer id, @PathVariable(value = "list_id") Integer list_id){
+        return userService.getUsersReadingList(id, list_id);
     }
 }
 
