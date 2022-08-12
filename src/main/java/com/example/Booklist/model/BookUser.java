@@ -30,6 +30,6 @@ public class BookUser {
     @NotBlank
     private String password;
 
-    @OneToMany(mappedBy = "bookUser")
+    @OneToMany(mappedBy = "bookUser", cascade = CascadeType.REMOVE)
     private List<ReadingList> readingLists = new ArrayList<>();
 }
