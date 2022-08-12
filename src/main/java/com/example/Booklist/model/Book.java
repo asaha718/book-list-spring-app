@@ -22,20 +22,26 @@ import java.util.List;
 @AllArgsConstructor
 public class Book {
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "BOOKID")
+    private int bookID;
+
     @NotNull
     @NotBlank
+    @Column(name = "TITLE")
     private String title;
-    @NotNull
-    @NotBlank
+
+    @Column(name = "PAGES")
     private int pages;
+
+    @Column(name = "PUBLISHED")
     private LocalDate published;
 
     @ManyToMany(mappedBy = "books")
     List<ReadingList> readingLists= new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "AUTHORID")
     private Author author;
 
     @ManyToMany(mappedBy = "books")
