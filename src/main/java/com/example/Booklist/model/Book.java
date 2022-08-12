@@ -28,7 +28,6 @@ public class Book {
     @NotBlank
     private String title;
     @NotNull
-    @NotBlank
     private int pages;
     private LocalDate published;
 
